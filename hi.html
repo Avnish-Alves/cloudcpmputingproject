@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Providers</title>
+    <style>
+        body {
+            background-color: rgb(23, 167, 172);
+    color: white;
+    font-family: "Poppins", sans-serif;
+}
+
+        header {
+            background-color: rgb(6, 72, 75);
+            color: #fff;
+            text-align: center;
+            padding: 30px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            text-align: center;
+            color: rgb(255, 255, 255);
+            
+        
+        }
+
+        .profile {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 10px;
+            width: 20%;
+        }
+
+        .profile img {
+            width: 200px; /* Set your desired width */
+            height: 200px; /* Set your desired height */
+            object-fit: cover;
+            
+        }
+
+   
+
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #06484b;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        transition: background-color 0.3s ease;
+        font-size: 16px;
+    }
+
+    .btn:hover {
+        background-color: #4949cb;
+    }
+</style>
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Service Providers around You</h1>
+        <!-- Dropdown filters -->
+        <label for="skill-filter">Filter by Skill:</label>
+        <select id="skill-filter">
+            <option value="all">All</option>
+            <option value="plumbing">Plumbing</option>
+            <option value="mechanic">Mechanic</option>
+            <!-- Add more options for other skills if needed -->
+        </select>
+
+        <label for="location-filter">Filter by Location:</label>
+        <select id="location-filter">
+            <option value="all">All</option>
+            <option value="palghar">Palghar</option>
+            <option value="mumbai">Mumbai</option>
+            <!-- Add more options for other locations if needed -->
+        </select>
+    </header>
+
+
+    <div class="container">
+        <div class="profile plumbing" data-location="palghar">
+            <img src="assets/images/p4.jpeg " alt="Person 1">
+            <h2>Badal Desai</h2>
+            <p>Job Title: Service Provider </p>
+            <p>Experience: 5 years</p>
+            <p>Skills: Plumbing</p>
+            <p>Location: Palghar</p>
+            <a href="/profile.html"class= "btn">Seea Profile</a>
+
+        </div>
+
+        <div class="profile plumbing" data-location="mumbai">
+            <img src="assets/images/p3.jpeg " alt="Person 2">
+            <h2>Sita Smith</h2>
+            <p>Job Title: Service Provider</p>
+            <p>Experience: 3 years</p>
+            <p>Skills: Plumbing</p>
+            <a href="/profile.html" class= "btn">See Profile</a>
+        </div>
+
+        <div class="profile plumbing" data-location="palghar">
+            <img src="assets/images/p5.jpeg" alt="Person 3">
+            <h2>Michael Perrara</h2>
+            <p>Job Title: Service Provider</p>
+            <p>Experience: 7 years</p>
+            <p>Skills: Plumbing</p>
+            <a href="/profile.html" class= "btn">See Profile</a>
+
+        </div>
+
+        <div class="profile plumbing" data-location="mumbai">
+            <img src="assets/images/p1.jpeg  " alt="Person 4">
+            <h2>Susan Brown</h2>
+            <p>Job Title: Service Provider</p>
+            <p>Experience: 8 years</p>
+            <p>Skills: Plumbing</p>
+            <a href="/profile.html" class= "btn">See Profile</a>
+
+        </div>
+        <div class="profile plumbing" data-location="palghar">
+            <img src="assets/images/p6.jpeg  " alt="Person 4">
+            <h2>Dinesh Deshmukh</h2>
+            <p>Job Title: Service Provider</p>
+            <p>Experience: 8 years</p>
+            <p>Skills: Plumbing</p>
+            <a href="/profile.html" class= "btn">See Profile</a>
+
+        </div>
+        <div class="profile plumbing" data-location="mumbai">
+            <img src="assets/images/p7.jpeg  " alt="Person 4">
+            <h2>Narayan ayyar</h2>
+            <p>Job Title: Service Provider</p>
+            <p>Experience: 18 years</p>
+            <p>Skills: Plumber, carpenter</p>
+            <a href="/profile.html" class= "btn">See Profile</a>
+
+        </div>
+        <div class="profile plumbing" data-location="palghar">
+            <img src="assets/images/p8.jpeg  " alt="Person 4">
+            <h2>Devi Uttekar</h2>
+            <p>Job Title: Service Provider</p>
+            <p>Experience: 28 years</p>
+            <p>Skills:Plumber, Electrician</p>
+            <a href="/profile.html" class= "btn">See Profile</a>
+
+        </div>
+
+        <div class="profile plumbing" data-location="mumbai">
+            <img src="assets/images/p2.jpeg" alt="Person 5">
+            <h2>Sarthak Deshpande</h2>
+            <p>Job Title: Service Provider</p>
+            <p>Experience: 6 years</p>
+            <p>Skills: Plumber, Works man</p>
+            <a href="/profile.html" class= "btn">See Profile</a>
+
+
+
+        </div>
+        <div class="profile mechanic" data-location="palghar">
+            <img src="/assets/images/m1.jpg" alt="Person 1">
+            <h2>Raju Anand</h2>
+            <p>Job Title: Service Provider </p>
+            <p>Experience: 9 years</p>
+            <p>Skills: Mechanic</p>
+           <a href="/profile.html" class= "btn">See Profile</a>
+
+        </div>
+
+        <div class="profile mechanic" data-location="mumbai">
+            <img src="/assets/images/m7.jpg" alt="Person 2">
+            <h2>Sumit Mishra</h2>
+            <p>Job Title: Service Provider</p>
+            <p>Experience: 19 years</p>
+            <p>Skills: Mechanic</p>
+           <a href="/profile.html" class= "btn">See Profile</a>
+
+        </div>
+
+        <div class="profile mechanic" data-location="palghar">
+            <img src="/assets/images/m2.jpg" alt="Person 3">
+            <h2>Adarsh Gupta</h2>
+            <p>Job Title: Service Provider</p>
+            <p>Experience: 18 years</p>
+            <p>Skills: Mechanic</p>
+           <a href="/profile.html" class= "btn">See Profile</a>
+
+        </div>
+
+        <div class="profile mechanic" data-location="mumbai">
+            <img src="/assets/images/m3.jpg" alt="Person 4">
+            <h2>Ram Sinha</h2>
+            <p>Job Title: Service Provider</p>
+            <p>Experience: 15 years</p>
+            <p>Skills: Mechanic</p>
+           <a href="/profile.html" class= "btn">See Profile</a>
+
+        </div>
+        <div class="profile mechanic" data-location="palghar">
+            <img src="/assets/images/m4.jpg" alt="Person 5">
+            <h2>Sooraj Das</h2>
+            <p>Job Title: Service Provider</p>
+            <p>Experience: 9 years</p>
+            <p>Skills: Mechanic</p>
+           <a href="/profile.html" class= "btn">See Profile</a>
+
+        </div>
+
+        <div class="profile mechanic" data-location="mumbai">
+            <img src="/assets/images/m5.jpg" alt="Person 6">
+            <h2>Sunita Sharma</h2>
+            <p>Job Title: Service Provider</p>
+            <p>Experience: 12 years</p>
+            <p>Skills: Mechanic</p>
+           <a href="/profile.html" class= "btn">See Profile</a>
+
+        </div>
+
+        <div class="profile mechanic" data-location="palghar">
+            <img src="/assets/images/m6.jpg" alt="Person 7">
+            <h2>Dilip Mistri</h2>
+            <p>Job Title: Service Provider</p>
+            <p>Experience: 13 years</p>
+            <p>Skills: Mechanic</p>
+           <a href="/profile.html" class= "btn">See Profile</a>
+
+        </div>
+
+    </div>
+    <script>
+        document.getElementById('skill-filter').addEventListener('change', filterProfiles);
+        document.getElementById('location-filter').addEventListener('change', filterProfiles);
+
+        function filterProfiles() {
+            const selectedSkill = document.getElementById('skill-filter').value;
+            const selectedLocation = document.getElementById('location-filter').value;
+            const profiles = document.querySelectorAll('.profile');
+
+            profiles.forEach(profile => {
+                const profileSkill = profile.classList.contains(selectedSkill) || selectedSkill === 'all';
+                const profileLocation = profile.getAttribute('data-location') === selectedLocation || selectedLocation === 'all';
+
+                if (profileSkill && profileLocation) {
+                    profile.style.display = 'block'; // Show profile if it matches the selected skill and location
+                } else {
+                    profile.style.display = 'none'; // Hide profile if it doesn't match
+                }
+            });
+        }
+    </script>
+    
+</body>
+</html>

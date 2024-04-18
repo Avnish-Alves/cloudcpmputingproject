@@ -1,0 +1,38 @@
+{
+    "profiles": [
+      {
+        "name": "John Doe",
+        "jobTitle": "Plumber",
+        "experience": 5,
+        "skills": "Plumbing",
+        "location": "Palghar",
+        "image": "https://via.placeholder.com/200"
+      },
+      {
+        "name": "Jane Smith",
+        "jobTitle": "Mechanic",
+        "experience": 8,
+        "skills": "Mechanic",
+        "location": "Mumbai",
+        "image": "https://via.placeholder.com/200"
+      },
+      {
+        "name": "Alice Johnson",
+        "jobTitle": "Electrician",
+        "experience": 10,
+        "skills": "Electrician",
+        "location": "Palghar",
+        "image": "https://via.placeholder.com/200"
+      },
+      {
+        "name": "Bob Brown",
+        "jobTitle": "Carpenter",
+        "experience": 6,
+        "skills": "Carpentry",
+        "location": "Mumbai",
+        "image": "https://via.placeholder.com/200"
+      }
+      
+    ]
+  }
+  

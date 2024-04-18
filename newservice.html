@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Providers</title>
+    <style>
+        body {
+            background-color: rgb(23, 167, 172);
+    color: white;
+    font-family: "Poppins", sans-serif;
+}
+
+        header {
+            background-color: rgb(6, 72, 75);
+            color: #fff;
+            text-align: center;
+            padding: 30px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            text-align: center;
+            color: rgb(255, 255, 255);
+            
+        
+        }
+
+        .profile {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 10px;
+            width: 20%;
+        }
+
+        .profile img {
+            width: 200px; /* Set your desired width */
+            height: 200px; /* Set your desired height */
+            object-fit: cover;
+            
+        }
+
+   
+
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #06484b;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        transition: background-color 0.3s ease;
+        font-size: 16px;
+    }
+
+    .btn:hover {
+        background-color: #4949cb;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <h1>Service Providers around You</h1>
+        <!-- Dropdown filters -->
+        <label for="skill-filter">Filter by Skill:</label>
+        <select id="skill-filter">
+            <option value="all">All</option>
+            <option value="plumbing">Plumbing</option>
+            <option value="mechanic">Mechanic</option>
+            <!-- Add more options for other skills if needed -->
+        </select>
+
+        <label for="location-filter">Filter by Location:</label>
+        <select id="location-filter">
+            <option value="all">All</option>
+            <option value="Palghar">Palghar</option>
+            <option value="Mumbai">Mumbai</option>
+            <!-- Add more options for other locations if needed -->
+        </select>
+    </header>
+
+
+    <div class="container" id="profilesContainer">
+        <!-- Profiles will be dynamically added here -->
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js"></script>
+
+    <script>
+        // Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyBaxbFLp7ffn3aH6ASHf5OAyyQIKeXUxVo",
+            authDomain: "local-connect-6350a.firebaseapp.com",
+            projectId: "local-connect-6350a",
+            storageBucket: "local-connect-6350a.appspot.com",
+            messagingSenderId: "212689090695",
+            appId: "1:212689090695:web:be11757e50b53e963ca022",
+            measurementId: "G-JJZJ0YC5Y5"
+          };
+
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+
+        // Reference to the Firebase database
+        const database = firebase.database();
+
+        // Function to fetch data from Firebase and populate profiles
+        function fetchDataAndPopulateProfiles() {
+            const profilesContainer = document.getElementById('profilesContainer');
+
+            // Clear existing profiles
+            profilesContainer.innerHTML = '';
+
+            // Fetch data from Firebase
+            database.ref('profiles').once('value', snapshot => {
+                snapshot.forEach(childSnapshot => {
+                    const profileData = childSnapshot.val();
+                    const profileDiv = document.createElement('div');
+                    profileDiv.classList.add('profile');
+                    profileDiv.classList.add(profileData.skills.toLowerCase()); // Add skills as a class
+                    profileDiv.setAttribute('data-location', profileData.location); // Set location data attribute
+                    profileDiv.innerHTML = `
+                        <img src="${profileData.image}" alt="${profileData.name}">
+                        <h2>${profileData.name}</h2>
+                        <p>Job Title: ${profileData.jobTitle}</p>
+                        <p>Experience: ${profileData.experience} years</p>
+                        <p>Skills: ${profileData.skills}</p>
+                        <p>Location: ${profileData.location}</p>
+                        <a href="/profile.html" class="btn">See Profile</a>
+                    `;
+                    profilesContainer.appendChild(profileDiv);
+                });
+                // Apply initial filtering
+                filterProfiles();
+            });
+        }
+
+        // Call the function to fetch data and populate profiles
+        fetchDataAndPopulateProfiles();
+
+        // Add event listeners to filters
+        document.getElementById('skill-filter').addEventListener('change', filterProfiles);
+        document.getElementById('location-filter').addEventListener('change', filterProfiles);
+
+        // Function to filter profiles based on selected skill and location
+        function filterProfiles() {
+            const selectedSkill = document.getElementById('skill-filter').value.toLowerCase();
+            const selectedLocation = document.getElementById('location-filter').value;
+            const profiles = document.querySelectorAll('.profile');
+
+            profiles.forEach(profile => {
+                const profileSkill = profile.classList.contains(selectedSkill) || selectedSkill === 'all';
+                const profileLocation = profile.getAttribute('data-location') === selectedLocation || selectedLocation === 'all';
+
+                if (profileSkill && profileLocation) {
+                    profile.style.display = 'block'; // Show profile if it matches the selected skill and location
+                } else {
+                    profile.style.display = 'none'; // Hide profile if it doesn't match
+                }
+            });
+        }
+    </script>
+</body>
+</html>
